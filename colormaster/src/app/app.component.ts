@@ -4,7 +4,7 @@ import { ColorUtilities } from '@kolory/color-utilities/src/library';
 
 @Component({
   selector: 'my-app',
-  templateUrl: 'app/colorview.html'
+  templateUrl: '../src/app/colorview.html'
 })
 export class AppComponent  { 
     color = ''; 
