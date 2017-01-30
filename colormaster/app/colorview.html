@@ -1,0 +1,19 @@
+<div class="color-background" [style.background-color]="getColor()">
+    <div class="form-group" id="color-input">
+        <input type="text" class="form-control" 
+               placeholder="RGB: rgb(r,g,b)" id="rgb"
+               #rgb 
+               (keyup.enter)="setRgbColor(rgb.value)"
+               (blur)="setRgbColor(rgb.value)"
+               >
+        <p class="input-error-msg" id="hex-input-msg">{{rgbInputErrMsg}}</p>
+
+        <input type="text" class="form-control" 
+               placeholder="HEX: #rrggbb" id="hex"
+               #hex 
+               (keyup.enter)="setHexColor(hex.value)"
+               (blur)="setHexColor(hex.value)"
+               >
+        <p class="input-error-msg" id="hex-input-msg">{{hexInputErrMsg}}</p>
+    </div>
+</div>
