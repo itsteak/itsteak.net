@@ -1,0 +1,8 @@
+#color-input{
+    width: 300px;
+    margin: 20px auto 1000px auto;
+}
+
+#color-input input{
+    margin-bottom: 10px;
+}
