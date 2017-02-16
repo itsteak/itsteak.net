@@ -51,10 +51,10 @@ type StoreType = {
   bootstrap: [ AppComponent ],
   declarations: [
     AppComponent,
-    AboutComponent,
-    HomeComponent,
-    NoContentComponent,
-    XLargeDirective
+    //AboutComponent,
+    //HomeComponent,
+    //NoContentComponent,
+    //XLargeDirective
   ],
   imports: [ // import Angular's modules
     BrowserModule,
