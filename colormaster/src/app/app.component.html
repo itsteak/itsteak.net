@@ -3,17 +3,19 @@
         <input type="text" class="form-control" 
                placeholder="RGB: rgb(r,g,b)" id="rgb"
                #rgb 
+               value="{{rgbValue}}"
                (keyup.enter)="setRgbColor(rgb.value)"
                (blur)="setRgbColor(rgb.value)"
                >
-        <p class="input-error-msg" id="hex-input-msg">{{rgbInputErrMsg}}</p>
-
+        <p class="input-error-msg" id="rgb-error-msg" [style.display]="getRgbErrorMsg()">{{rgbInputErrMsg}}</p>
+        <div class="interval1"></div>
         <input type="text" class="form-control" 
                placeholder="HEX: #rrggbb" id="hex"
                #hex 
+               value="{{hexValue}}"
                (keyup.enter)="setHexColor(hex.value)"
                (blur)="setHexColor(hex.value)"
                >
-        <p class="input-error-msg" id="hex-input-msg">{{hexInputErrMsg}}</p>
+        <p class="input-error-msg" id="hex-error-msg" [style.display]="getHexErrorMsg()">{{hexInputErrMsg}}</p>
     </div>
 </div>

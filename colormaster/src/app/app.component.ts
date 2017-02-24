@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 import { AppState } from './app.service';
 import { ColorUtilities } from '@kolory/color-utilities/src/library';
+import { ColorTypes } from '@kolory/color-utilities/src/color-types-enum';
 
 /*
  * App Component
@@ -20,21 +21,41 @@ import { ColorUtilities } from '@kolory/color-utilities/src/library';
   templateUrl: 'app.component.html'
 })
 export class AppComponent {
+    public rgbValue = '';
+    public hexValue = '';
     public rgbInputErrMsg = '';
     public hexInputErrMsg = '';
 
     private color = '';
 
     public getColor() { return this.color; }
+    public getHexErrorMsg() {
+        if ('' === this.hexInputErrMsg) {
+            return 'none';
+        }
+        return 'block';
+    }
+    public getRgbErrorMsg() {
+        if ('' === this.rgbInputErrMsg) {
+            return 'none';
+        }
+        return 'block';
+    }
 
-    public setHexColor(hex: string) {
+    public setHexColor(hex: string, updateColor: boolean = true) {
         const colorUtil = new ColorUtilities();
 
         if (hex.length === 0) {
             this.hexInputErrMsg = '';
-        } else if (hex.length > 0 && !colorUtil.isValidHexColor(hex)) {
-            this.hexInputErrMsg = 'Wrong HEX format';
-            return;
+        } else if (hex.length > 0) {
+            if (!colorUtil.isValidHexColor(hex)) {
+                this.hexInputErrMsg = 'Wrong HEX format';
+                return;
+            } else {
+                this.hexInputErrMsg = '';
+                this.rgbInputErrMsg = '';
+                this.rgbValue = colorUtil.convert(hex, ColorTypes.rgb);
+            }
         }
 
         this.color = hex;
@@ -45,9 +66,15 @@ export class AppComponent {
 
         if (rgb.length === 0) {
             this.rgbInputErrMsg = '';
-        } else if (rgb.length > 0 && !colorUtil.isValidRgbColor(rgb)) {
-            this.rgbInputErrMsg = 'Wrong RGB format';
-            return;
+        } else if (rgb.length > 0) {
+            if (!colorUtil.isValidRgbColor(rgb)) {
+                this.rgbInputErrMsg = 'Wrong RGB format';
+                return;
+            } else {
+                this.rgbInputErrMsg = '';
+                this.hexInputErrMsg = '';
+                this.hexValue = colorUtil.convert(rgb, ColorTypes.hex);
+            }
         }
 
         this.color = rgb;

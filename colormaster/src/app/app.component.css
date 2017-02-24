@@ -1,8 +1,51 @@
+* {
+    font-size: 20px;
+}
+
+app{
+    height: 100%;
+}
+
+html{
+    height: 100%;
+}
+
+body{
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+}
+
+.color-background{
+    height: 100vh;
+}
+
 #color-input{
     width: 300px;
-    margin: 20px auto 1000px auto;
+    margin: 0px auto 0px auto;
 }
 
 #color-input input{
-    margin-bottom: 10px;
+    width: 260px;
+    height: 40px;    
+    padding: 0px 12px;
+}
+
+.form-group{
+    padding: 40px 0px;
+}
+
+.interval1{
+    height: 40px;
+}
+
+p{
+    margin: 0px;
+}
+
+p.input-error-msg {
+    width: 264px;
+    color: red;
+    background-color: white;
+    padding: 5px 12px;
 }
